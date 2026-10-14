@@ -71,4 +71,5 @@ resource "cloudflare_web_analytics_site" "web_analytics" {
   account_id   = var.account_id
   host         = var.full_domain_name
   auto_install = true
+  zone_tag     = var.zone_id
 }
