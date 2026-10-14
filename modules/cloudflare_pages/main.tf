@@ -31,6 +31,7 @@ resource "cloudflare_pages_project" "this" {
   }
 
   build_config = {
+    build_caching   = var.build_command != ""
     build_command   = var.build_command
     destination_dir = var.destination_dir
     root_dir        = var.root_dir # Critical setting for monorepos!

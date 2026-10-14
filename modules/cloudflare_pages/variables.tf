@@ -24,13 +24,15 @@ variable "root_dir" {
 }
 
 variable "build_command" {
-  type    = string
-  default = ""
+  type        = string
+  description = "Build command for the Cloudflare Pages project (e.g., 'npm run build')"
+  default     = ""
 }
 
 variable "destination_dir" {
-  type    = string
-  default = ""
+  type        = string
+  description = "Destination directory for the build output (e.g., 'dist')"
+  default     = ""
 }
 
 variable "env_vars" {
