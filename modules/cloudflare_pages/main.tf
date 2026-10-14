@@ -26,6 +26,7 @@ resource "cloudflare_pages_project" "this" {
       preview_deployment_setting    = "all"
       pr_comments_enabled           = true
       path_includes                 = ["${var.root_dir}/*"]
+      preview_branch_includes       = ["${var.root_dir}/*"]
     }
   }
 
