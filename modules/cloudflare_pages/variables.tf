@@ -5,7 +5,7 @@ variable "account_id" {
 
 variable "project_name" {
   type        = string
-  description = "Name of the Cloudflare Pages project"
+  description = "Name for the Pages project. Must begin with a lowercase letter or digit and contain only lowercase letters, digits, and hyphens."
 }
 
 variable "repo_owner" {
@@ -36,4 +36,19 @@ variable "destination_dir" {
 variable "env_vars" {
   type    = map(string)
   default = {}
+}
+
+variable "zone_id" {
+  type        = string
+  description = "Cloudflare Zone ID"
+}
+
+variable "full_domain_name" {
+  type        = string
+  description = "Full domain name for the Cloudflare Pages project (e.g., 'www.example.com')"
+}
+
+variable "subdomain" {
+  type        = string
+  description = "Subdomain for the Cloudflare Pages project (e.g., 'www', or '@' for apex)"
 }
