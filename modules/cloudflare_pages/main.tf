@@ -21,10 +21,11 @@ resource "cloudflare_pages_project" "this" {
       owner                         = var.repo_owner
       repo_name                     = var.repo_name
       production_branch             = "main"
-      preview_deployment_setting = true
+      preview_deployment_setting    = true
       production_deployment_enabled = true
       preview_deployment_setting    = "all"
       pr_comments_enabled           = true
+      path_includes                 = ["${var.root_dir}/*"]
     }
   }
 
@@ -54,11 +55,11 @@ resource "cloudflare_pages_domain" "custom_domain" {
 
 # 3. Route DNS to the Cloudflare Pages Subdomain
 resource "cloudflare_dns_record" "site_dns" {
-  depends_on   = [cloudflare_pages_project.this]
-  zone_id = var.zone_id
-  name    = var.subdomain
-  content = cloudflare_pages_project.this.subdomain
-  type    = "CNAME"
-  proxied = true
-  ttl     = 1
+  depends_on = [cloudflare_pages_project.this]
+  zone_id    = var.zone_id
+  name       = var.subdomain
+  content    = cloudflare_pages_project.this.subdomain
+  type       = "CNAME"
+  proxied    = true
+  ttl        = 1
 }
