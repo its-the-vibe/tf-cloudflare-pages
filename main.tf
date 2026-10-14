@@ -23,3 +23,17 @@ module "local_ledger" {
   build_command    = "npm run build"
   destination_dir  = "dist"
 }
+
+module "spinny_globe" {
+  source           = "./modules/cloudflare_pages"
+  account_id       = var.cloudflare_account_id
+  repo_owner       = var.repo_owner
+  repo_name        = var.repo_name
+  project_name     = "spinny-globe"
+  root_dir         = "spinny-globe"
+  full_domain_name = "spinny-globe.${var.custom_domain}"
+  subdomain        = "spinny-globe"
+  zone_id          = var.cloudflare_zone_id
+  build_command    = "npm run build"
+  destination_dir  = "dist"
+}
