@@ -31,11 +31,11 @@ resource "cloudflare_pages_project" "this" {
   }
 
   build_config = {
-    build_command       = var.build_command
-    destination_dir     = var.destination_dir
-    root_dir            = var.root_dir # Critical setting for monorepos!
-    web_analytics_tag   = cloudflare_web_analytics_site.web_analytics.site_tag
-    web_analytics_token = cloudflare_web_analytics_site.web_analytics.site_token
+    build_command   = var.build_command
+    destination_dir = var.destination_dir
+    root_dir        = var.root_dir # Critical setting for monorepos!
+    # web_analytics_tag   = cloudflare_web_analytics_site.web_analytics.site_tag
+    # web_analytics_token = cloudflare_web_analytics_site.web_analytics.site_token
   }
 
   deployment_configs = {
@@ -65,10 +65,4 @@ resource "cloudflare_dns_record" "site_dns" {
   type       = "CNAME"
   proxied    = true
   ttl        = 1
-}
-
-resource "cloudflare_web_analytics_site" "web_analytics" {
-  account_id   = var.account_id
-  host         = var.full_domain_name
-  auto_install = false
 }
