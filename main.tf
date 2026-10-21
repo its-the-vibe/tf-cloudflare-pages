@@ -87,3 +87,15 @@ module "spinny_globe" {
   build_command    = "npm run build"
   destination_dir  = "dist"
 }
+
+module "coin_toss" {
+  source           = "./modules/cloudflare_pages"
+  account_id       = var.cloudflare_account_id
+  repo_owner       = var.repo_owner
+  repo_name        = var.repo_name
+  project_name     = "coin-toss"
+  root_dir         = "CoinToss"
+  full_domain_name = "cointoss.${var.custom_domain}"
+  subdomain        = "cointoss"
+  zone_id          = var.cloudflare_zone_id
+}
