@@ -99,3 +99,15 @@ module "coin_toss" {
   subdomain        = "cointoss"
   zone_id          = var.cloudflare_zone_id
 }
+
+module "magic_8" {
+  source           = "./modules/cloudflare_pages"
+  account_id       = var.cloudflare_account_id
+  repo_owner       = var.repo_owner
+  repo_name        = var.repo_name
+  project_name     = "magic-8"
+  root_dir         = "Magic8"
+  full_domain_name = "magic8.${var.custom_domain}"
+  subdomain        = "magic8"
+  zone_id          = var.cloudflare_zone_id
+}
