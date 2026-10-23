@@ -122,4 +122,6 @@ module "neonbeats" {
   full_domain_name = "neonbeats.${var.custom_domain}"
   subdomain        = "neonbeats"
   zone_id          = var.cloudflare_zone_id
+  build_command    = "npm run build"
+  destination_dir  = "dist"
 }
