@@ -111,3 +111,15 @@ module "magic_8" {
   subdomain        = "magic8"
   zone_id          = var.cloudflare_zone_id
 }
+
+module "neonbeats" {
+  source           = "./modules/cloudflare_pages"
+  account_id       = var.cloudflare_account_id
+  repo_owner       = var.repo_owner
+  repo_name        = var.repo_name
+  project_name     = "neonbeats"
+  root_dir         = "NeonBeats"
+  full_domain_name = "neonbeats.${var.custom_domain}"
+  subdomain        = "neonbeats"
+  zone_id          = var.cloudflare_zone_id
+}
